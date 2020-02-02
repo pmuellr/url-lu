@@ -1,0 +1,33 @@
+{
+  "name": "url-lu",
+  "version": "1.0.0",
+  "description": "CLI access to a toml database of urls and passwords",
+  "main": "url-lu.js",
+  "author": "pmuellr",
+  "bin": {
+    "url-lu": "url-lu.js"
+  },
+  "scripts": {
+    "standard": "standard --verbose",
+    "test": "npm run -s standard"
+  },
+  "homepage": "https://github.com/pmuellr/url-lu",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmuellr/url-lu.git"
+  },
+  "dependencies": {
+    "meow": "^6.0.0",
+    "toml": "^3.0.0"
+  },
+  "devDependencies": {
+    "standard": "^14.3.1"
+  },
+  "standard": {
+    "ignore": [
+      "tmp/**/*",
+      "docs/**/*"
+    ]
+  }
+}
