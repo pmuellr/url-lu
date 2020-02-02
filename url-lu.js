@@ -50,12 +50,7 @@ async function main () {
 /** @type { () => Promise<import('./lib/types').IUrlDB> } */
 async function readUrlDB() {
   const fileName = path.join(process.env.HOME, '.url-lu.toml')
-  const tomlString = await readFile(fileName)
-  return UrlDB.create(fileName, tomlString)
-}
 
-/** @type { (message: string) => Promise<string> } */
-async function readFile(fileName) {
   let stat
   try {
     stat = await fsp.stat(fileName)
@@ -73,6 +68,12 @@ async function readFile(fileName) {
   ensureNotMode(fileName, mode, fsc.S_IWOTH, 'world writable')
   ensureNotMode(fileName, mode, fsc.S_IXOTH, 'world executable')
 
+  const tomlString = await readFile(fileName)
+  return UrlDB.create(fileName, tomlString)
+}
+
+/** @type { (message: string) => Promise<string> } */
+async function readFile(fileName) {
   try {
     return await fsp.readFile(fileName, { encoding: 'utf8' })
   } 
